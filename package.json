@@ -1,0 +1,15 @@
+{
+    "scripts": {
+        "clean": "rimraf dist",
+        "start": "eleventy --serve",
+        "dev": "eleventy --serve",
+        "build": "eleventy"
+    },
+    "dependencies": {
+        "@11ty/eleventy": "^3.0.0",
+        "rimraf": "^6.0.1"
+    },
+    "devDependencies": {
+        "@11ty/eleventy-img": "^6.0.2"
+    }
+}
