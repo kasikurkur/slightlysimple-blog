@@ -29,3 +29,18 @@ eleventyConfig.addNunjucksAsyncShortcode("img", async (src, alt) => {
     },
   };
 };
+
+const { DateTime } = require("luxon");
+
+module.exports = function (cfg) {
+  // fmtDate フィルタ
+  cfg.addFilter("fmtDate", (d, f = "yyyy-LL-dd") =>
+    DateTime.fromJSDate(typeof d === "string" ? new Date(d) : d)
+            .setZone("Asia/Tokyo")
+            .toFormat(f)
+  );
+
+  return {
+    dir: { input: "src", includes: "_includes", layouts: "layouts" }
+  };
+};
