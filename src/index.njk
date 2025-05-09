@@ -1,4 +1,4 @@
-<!-- Eleventy index page template - lists latest posts with Tailwind CSS -->
+<!-- Eleventy index page template - lists latest posts with Tailwind CSS and fmtDate filter -->
 {% set posts = collections.posts | reverse %}
 <!DOCTYPE html>
 <html lang="ja">
@@ -39,8 +39,8 @@
             {% endif %}
             <div class="p-6">
               <h2 class="text-xl font-semibold mb-2">{{ post.data.title }}</h2>
-              <time class="block text-xs text-gray-500 mb-4" datetime="{{ post.date | date('yyyy-LL-dd') }}">
-                {{ post.date | date('yyyy年M月d日') }}
+              <time class="block text-xs text-gray-500 mb-4" datetime="{{ post.date }}">
+                {{ post.date | fmtDate }}
               </time>
               <p class="text-sm text-gray-700 leading-relaxed mb-4">{{ post.data.description }}</p>
               <span class="inline-block text-indigo-600 font-medium hover:underline">続きを読む →</span>
@@ -52,7 +52,7 @@
 
     <!-- Footer -->
     <footer class="mt-20 py-10 text-center text-xs text-gray-500">
-      © {{ "now" | date("yyyy") }} Slightly Simple Blog – Powered by Eleventy
+      © {{ "now" | fmtDate("yyyy") }} Slightly Simple Blog – Powered by Eleventy
     </footer>
   </body>
 </html>
