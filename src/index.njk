@@ -1,10 +1,58 @@
----
-layout: base.njk
-title: Create Eleventy App
----
+<!-- Eleventy index page template - lists latest posts with Tailwind CSS -->
+{% set posts = collections.posts | reverse %}
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ title or 'Slightly Simple Blog' }}</title>
+    <link href="/styles/tailwind.css" rel="stylesheet" />
+  </head>
+  <body class="bg-gray-50 text-gray-900 font-sans leading-relaxed">
+    <!-- Header -->
+    <header class="bg-white shadow sticky top-0 z-30">
+      <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
+        <a href="/" class="text-2xl font-extrabold tracking-tight">Slightly Simple</a>
+        <nav class="space-x-4 text-sm">
+          <a href="/about/" class="hover:underline">About</a>
+          <a href="/tags/" class="hover:underline">Tags</a>
+          <a href="https://github.com/kasikurkur/slightlysimple-blog" class="hover:underline">GitHub</a>
+        </nav>
+      </div>
+    </header>
 
-<div id="site">
-    <img src="assets\img/logo.png" class="logo" alt="Eleventy logo" />
-    <p>Edit <code>src/index.njk</code> and save to reload.</p>
-    <a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer">Learn 11ty</a>
-</div>
+    <!-- Hero -->
+    <section class="bg-gradient-to-r from-indigo-500 to-cyan-500 text-white">
+      <div class="max-w-4xl mx-auto px-4 py-16 text-center">
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-4">暮らしに役立つ科学とテクノロジーの雑記帳</h1>
+        <p class="max-w-2xl mx-auto text-lg md:text-xl opacity-90">最新 IT サービス・自動車情報と日常サイエンスの独自調査レポートを毎週お届けします。</p>
+      </div>
+    </section>
+
+    <!-- Posts Grid -->
+    <main class="max-w-5xl mx-auto px-4 mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {% for post in posts %}
+        <article class="bg-white shadow-md rounded-2xl overflow-hidden transition hover:shadow-xl">
+          <a href="{{ post.url }}" class="block">
+            {% if post.data.cover %}
+              <img src="{{ post.data.cover }}" alt="{{ post.data.title }} cover image" class="w-full h-48 object-cover" />
+            {% endif %}
+            <div class="p-6">
+              <h2 class="text-xl font-semibold mb-2">{{ post.data.title }}</h2>
+              <time class="block text-xs text-gray-500 mb-4" datetime="{{ post.date | date('yyyy-LL-dd') }}">
+                {{ post.date | date('yyyy年M月d日') }}
+              </time>
+              <p class="text-sm text-gray-700 leading-relaxed mb-4">{{ post.data.description }}</p>
+              <span class="inline-block text-indigo-600 font-medium hover:underline">続きを読む →</span>
+            </div>
+          </a>
+        </article>
+      {% endfor %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-20 py-10 text-center text-xs text-gray-500">
+      © {{ "now" | date("yyyy") }} Slightly Simple Blog – Powered by Eleventy
+    </footer>
+  </body>
+</html>
