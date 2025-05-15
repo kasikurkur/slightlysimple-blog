@@ -1,6 +1,7 @@
 // eleventy.config.js  （プロジェクトルート）
 const { DateTime } = require("luxon");
 const Image = require("@11ty/eleventy-img");
+const hpBlog = require("eleventy-high-performance-blog");
 
 module.exports = function (eleventyConfig) {
   /* ------------- 日付フィルタ ------------- */
@@ -39,6 +40,7 @@ module.exports = function (eleventyConfig) {
     }
   );
 
+  eleventyConfig.addPlugin(hpBlog);
   /* ------------- 静的アセット ------------- */
   eleventyConfig.addPassthroughCopy({ "src/assets/css": "assets/css" });
   eleventyConfig.addPassthroughCopy({ "src/assets/js": "assets/js" });
