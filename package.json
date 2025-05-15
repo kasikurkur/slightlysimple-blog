@@ -2,8 +2,8 @@
     "scripts": {
         "clean": "rimraf dist",
         "start": "eleventy --serve",
-        "dev": "eleventy --serve",
-        "build": "eleventy"
+        "dev": "concurrently \"eleventy --serve\" \"npx tailwindcss -i ./src/styles/main.css -o ./dist/styles/tailwind.css --watch\"",
+        "build": "npx tailwindcss -i ./src/styles/main.css -o ./dist/styles/tailwind.css && eleventy"
     },
     "dependencies": {
         "@11ty/eleventy": "^3.0.0",
@@ -11,6 +11,12 @@
     },
     "devDependencies": {
         "@11ty/eleventy-img": "^6.0.2",
-        "luxon": "^3.6.1"
+        "@tailwindcss/cli": "^4.1.6",
+        "autoprefixer": "^10.4.21",
+        "cssnano": "^7.0.7",
+        "luxon": "^3.6.1",
+        "postcss": "^8.5.3",
+        "tailwindcss": "^4.1.6",
+        "concurrently": "^8.2.0"
     }
 }
