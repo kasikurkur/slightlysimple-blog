@@ -2,7 +2,7 @@
 title: "ASUS Ascent GX10で仮想通貨マイニング―電力コストと利益を試算"
 date: 2025-05-10
 tags: [posts, technology, crypto, hardware]
-layout: post.njk
+layout: base.njk
 description: "ASUSのAIミニスーパーコンピューター「Ascent GX10」を仮想通貨マイニング用途に転用した場合の適性通貨、日次電気代、収入、利益を日本の電力単価で試算しました。"
 ---
 
