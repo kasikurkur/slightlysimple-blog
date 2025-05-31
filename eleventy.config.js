@@ -48,6 +48,7 @@ module.exports = function (eleventyConfig) {
   /* ------------- 静的アセット ------------- */
   eleventyConfig.addPassthroughCopy({ "src/assets/js": "assets/js" });
   eleventyConfig.addPassthroughCopy({ "src/assets/img": "assets/img" });
+  eleventyConfig.addPassthroughCopy("CNAME");
 
   /* ------------- ディレクトリ設定 ------------- */
   return {
