@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }} | {{ site.title or "slightlysimple.net" }}</title>
+    <meta name="description" content="{{ description or excerpt or title }}" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{ title }}" />
+    <meta property="og:description" content="{{ description or excerpt or title }}" />
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="{{ title }}" />
+    <meta name="twitter:description" content="{{ description or excerpt or title }}" />
+    
+    <link rel="stylesheet" href="/styles/tailwind.css" />
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="min-h-screen">
+        <!-- ナビゲーション -->
+        <nav class="max-w-4xl mx-auto px-6 py-4">
+            <a href="/" class="nav-home">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                </svg>
+                ホームに戻る
+            </a>
+        </nav>
+
+        <!-- 記事コンテンツ -->
+        <article class="prose">
+            <!-- 記事タイトル -->
+            <header class="mb-8">
+                <h1 class="text-4xl font-bold text-white mb-4">{{ title }}</h1>
+                
+                <!-- 記事メタデータ -->
+                <div class="post-meta">
+                    <span class="date">
+                        <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                        {{ date | fmtDate("yyyy年LL月dd日") }}
+                    </span>
+                    
+                    {% if tags and tags.length > 0 %}
+                    <div class="tags mt-2">
+                        <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+                        </svg>
+                        {% for tag in tags %}
+                            {% if tag !== "posts" %}
+                            <span class="tag">{{ tag }}</span>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+            </header>
+
+            <!-- 記事本文 -->
+            <div class="prose-content">
+                {{ content | safe }}
+            </div>
+        </article>
+
+        <!-- フッター -->
+        <footer class="max-w-4xl mx-auto px-6 py-8 mt-12 border-t border-gray-700">
+            <div class="text-center text-gray-400">
+                <a href="/" class="text-blue-400 hover:text-blue-300 transition-colors">
+                    slightlysimple.net
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

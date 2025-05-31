@@ -39,6 +39,12 @@ module.exports = function (eleventyConfig) {
     }
   );
 
+  /* ------------- コレクション ------------- */
+  // posts タグが付いたコンテンツをコレクションとして定義
+  eleventyConfig.addCollection("posts", function(collectionApi) {
+    return collectionApi.getFilteredByTag("posts");
+  });
+
   /* ------------- 静的アセット ------------- */
   eleventyConfig.addPassthroughCopy({ "src/assets/css": "assets/css" });
   eleventyConfig.addPassthroughCopy({ "src/assets/js": "assets/js" });
