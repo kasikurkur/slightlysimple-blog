@@ -46,7 +46,6 @@ module.exports = function (eleventyConfig) {
   });
 
   /* ------------- 静的アセット ------------- */
-  eleventyConfig.addPassthroughCopy({ "src/assets/css": "assets/css" });
   eleventyConfig.addPassthroughCopy({ "src/assets/js": "assets/js" });
   eleventyConfig.addPassthroughCopy({ "src/assets/img": "assets/img" });
 
