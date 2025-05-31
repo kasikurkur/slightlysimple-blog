@@ -41,7 +41,7 @@
 
   /* 記事コンテンツのスタイリング */
   .prose {
-    @apply max-w-4xl mx-auto px-6 py-8;
+    @apply text-gray-300 leading-relaxed;
   }
 
   .prose h1 {
@@ -61,11 +61,11 @@
   }
 
   .prose p {
-    @apply text-gray-300 leading-relaxed mb-4;
+    @apply text-gray-300 leading-relaxed mb-4 text-lg;
   }
 
   .prose ul, .prose ol {
-    @apply text-gray-300 mb-4 pl-6;
+    @apply text-gray-300 mb-4 pl-6 text-lg;
   }
 
   .prose li {
@@ -73,27 +73,51 @@
   }
 
   .prose blockquote {
-    @apply border-l-4 border-blue-400 pl-4 italic text-gray-400 my-6;
+    @apply border-l-4 border-blue-400 pl-4 italic text-gray-400 my-6 text-lg;
   }
 
   .prose code {
-    @apply bg-gray-800 text-blue-300 px-2 py-1 rounded text-sm;
+    @apply bg-gray-800 text-blue-300 px-2 py-1 rounded text-sm font-mono;
   }
 
   .prose pre {
-    @apply bg-gray-800 p-4 rounded-lg overflow-x-auto mb-4;
+    @apply bg-gray-800 p-4 rounded-lg overflow-x-auto mb-6 text-sm;
   }
 
   .prose pre code {
-    @apply bg-transparent p-0;
+    @apply bg-transparent p-0 text-gray-100;
   }
 
   .prose img {
-    @apply w-full max-w-2xl mx-auto rounded-lg shadow-lg my-6;
+    @apply w-full max-w-2xl mx-auto rounded-lg shadow-lg my-8 block;
   }
 
   .prose strong {
     @apply text-white font-semibold;
+  }
+
+  .prose em {
+    @apply text-gray-200 italic;
+  }
+
+  .prose a {
+    @apply text-blue-400 hover:text-blue-300 transition-colors underline;
+  }
+
+  .prose table {
+    @apply w-full border-collapse border border-gray-600 my-6;
+  }
+
+  .prose th, .prose td {
+    @apply border border-gray-600 px-4 py-2 text-left;
+  }
+
+  .prose th {
+    @apply bg-gray-700 text-white font-semibold;
+  }
+
+  .prose td {
+    @apply text-gray-300;
   }
 
   /* 記事メタデータ */
