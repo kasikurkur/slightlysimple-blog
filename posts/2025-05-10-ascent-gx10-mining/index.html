@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ASUS Ascent GX10で仮想通貨マイニング―電力コストと利益を試算 | slightlysimple.net</title>
+    <meta name="description" content="ASUSのAIミニスーパーコンピューター「Ascent GX10」を仮想通貨マイニング用途に転用した場合の適性通貨、日次電気代、収入、利益を日本の電力単価で試算しました。" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="ASUS Ascent GX10で仮想通貨マイニング―電力コストと利益を試算" />
+    <meta property="og:description" content="ASUSのAIミニスーパーコンピューター「Ascent GX10」を仮想通貨マイニング用途に転用した場合の適性通貨、日次電気代、収入、利益を日本の電力単価で試算しました。" />
+    <meta property="og:url" content="https://slightlysimple.net/posts/2025-05-10-ascent-gx10-mining/" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="ASUS Ascent GX10で仮想通貨マイニング―電力コストと利益を試算" />
+    <meta name="twitter:description" content="ASUSのAIミニスーパーコンピューター「Ascent GX10」を仮想通貨マイニング用途に転用した場合の適性通貨、日次電気代、収入、利益を日本の電力単価で試算しました。" />
+    
+    <link rel="stylesheet" href="/styles/tailwind.css" />
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="min-h-screen">
+        <!-- ナビゲーション -->
+        <nav class="max-w-4xl mx-auto px-6 py-4">
+            <a href="/" class="nav-home">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                </svg>
+                ホームに戻る
+            </a>
+        </nav>
+
+        <!-- 記事コンテンツ -->
+        <article class="max-w-4xl mx-auto px-6 py-8">
+            <!-- 記事タイトル -->
+            <header class="mb-8">
+                <h1 class="text-4xl font-bold text-white mb-4">ASUS Ascent GX10で仮想通貨マイニング―電力コストと利益を試算</h1>
+                
+                <!-- 記事メタデータ -->
+                <div class="post-meta">
+                    <span class="date">
+                        <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                        2025年05月10日
+                    </span>
+                    
+                    
+                    <div class="tags mt-2">
+                        <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+                        </svg>
+                        
+                            
+                        
+                            
+                            <span class="tag">technology</span>
+                            
+                        
+                            
+                            <span class="tag">crypto</span>
+                            
+                        
+                            
+                            <span class="tag">hardware</span>
+                            
+                        
+                    </div>
+                    
+                </div>
+            </header>
+
+            <!-- 記事本文 -->
+            <div class="prose">
+                <h2>はじめに</h2>
+<p>ASUSがまもなく発売する <strong>Ascent GX10</strong> は、NVIDIA Grace‑Blackwell「GB10」スーパー チップを採用した卓上サイズのAIマシンです。128 GBの統合メモリと最大1,000 TOPSの推論性能を備えつつ、消費電力はピークでも約170 Wに抑えられると発表されています。
+本記事では、同機を個人レベルの<strong>GPUマイニング</strong>に転用した場合、どの通貨が有望か、1日あたりの電気代・収益・最終利益を、日本の平均電力単価で概算します。</p>
+<h2>GX10のハードウェア仕様とマイニング適性</h2>
+<p><img src="../img/gx10_front.jpg" alt="GX10外観イメージ">
+GB10は20コアArm CPUとBlackwell世代GPUを同パッケージ化し、NVLink‑C2CでCPU‑GPU間の帯域をPCIe 5.0比5倍に高めています。
+RTX 4090に匹敵する2 GH/s級のKaspaハッシュレートが報告されているBlackwellベースGPUを240 Wで駆動した場合の効率は約0.0083 GH/Wですが、GX10は170 W制限により1.8 GH/s前後に落ち着くと推定されます。
+グラフィック出力も備えるため、Ravencoin（KawPow）やErgo（Autolykos）などGPU寄りアルゴリズム全般を扱えますが、Kaspa（kHeavyHash）は<strong>メモリ帯域依存度が低く効率が高い</strong>ため、家庭用電力単価の高い日本でも黒字化しやすい選択肢となります。</p>
+<h2>電気代の計算</h2>
+<p>GX10を24時間連続稼働すると、</p>
+<ul>
+<li>消費電力量：0.17 kW × 24 h ＝ <strong>4.08 kWh</strong></li>
+<li>日本の平均家庭用電力単価：36.699 円/kWh（2024年9月時点）</li>
+<li><strong>日次電気代：約150 円（≒1.05 USD）</strong></li>
+</ul>
+<h2>日次収益シミュレーション</h2>
+<p>最新のRTX 4090実測値では、Kaspa 2 GH/s・240 W構成で<strong>1.22 USD/日</strong>の総収入が報告されています。
+ハッシュレートをGX10想定の1.8 GH/sに比例させ、消費電力差も考慮すると総収入は <strong>約1.10 USD（165 円）/日</strong> と推算できます。</p>
+<ul>
+<li>総収入：165 円</li>
+<li>電気代：150 円</li>
+<li><strong>日次利益：15 円</strong>（月あたり約450 円）</li>
+</ul>
+<p>参考までに、より電力制約の少ないRTX 5090（410 W）ではGRIN等で19 USD/日以上の収入例もありますが、日本の高電力コスト環境では同クラスGPUでも赤字になるケースが多い点に注意が必要です。</p>
+<h2>まとめ：導入判断のポイント</h2>
+<p><img src="../img/mining_concept.jpg" alt="マイニング概念図"></p>
+<ol>
+<li><strong>最有力通貨はKaspa</strong>：メモリ帯域依存が低く、Blackwell GPUの効率を活かせる。</li>
+<li><strong>電力コストが収益を圧迫</strong>：36.7 円/kWhでは日利15 円程度。電力単価が20 円/kWh以下の事業用契約や地方電力を確保できない限り、大きな利益は期待しにくい。</li>
+<li><strong>AI推論との兼業</strong>：AI開発や推論用途で昼間稼働し、夜間にマイニングを回す運用なら設備投資をより有効活用できる。</li>
+<li><strong>為替・難易度変動リスク</strong>：Kaspa価格やネットワーク難易度、円安・円高で損益が大きく変わるため、定期的にWhatToMine等で再試算し、撤退ラインを明確にすることが推奨される。</li>
+</ol>
+<p>Ascent GX10は革新的なAIミニスーパーコンピューターですが、日本の家庭で「マイニング専用機」として使う場合、現状の電力単価では<strong>趣味レベルの微益</strong>に留まります。AI研究とマイニングを両立させるハイブリッド運用こそが、同機を最も有効活用するシナリオと言えるでしょう。</p>
+
+            </div>
+        </article>
+
+        <!-- フッター -->
+        <footer class="max-w-4xl mx-auto px-6 py-8 mt-12 border-t border-gray-700">
+            <div class="text-center text-gray-400">
+                <a href="/" class="text-blue-400 hover:text-blue-300 transition-colors">
+                    slightlysimple.net
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
